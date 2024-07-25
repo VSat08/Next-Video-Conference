@@ -65,8 +65,7 @@ const MeetingRoom = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 flex flex-wrap-reverse w-fu
-      ll items-center justify-center gap-2 sm:gap-3 md:gap-4 ">
+      <div className="fixed bottom-0 flex flex-wrap-reverse w-full items-center justify-center gap-2 sm:gap-3 md:gap-4 ">
         <CallControls />
 
         <DropdownMenu>
