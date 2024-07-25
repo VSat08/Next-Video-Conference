@@ -61,7 +61,6 @@ const MeetingTypeList = () => {
       toast({
         title: "Yohoo! Meeting created !",
       });
-      
     } catch (error) {
       console.log(error);
       toast({
