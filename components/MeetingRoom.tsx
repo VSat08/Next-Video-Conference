@@ -37,12 +37,6 @@ const MeetingRoom = () => {
   const { useCallCallingState } = useCallStateHooks();
   const callingState = useCallCallingState();
 
-  useEffect(() => {
-    if (callingState === CallingState.LEFT) {
-      router.push("/"); // Redirect to homepage when call ends
-    }
-  }, [callingState, router]);
-
   if (callingState !== CallingState.JOINED) return <Loader />;
 
   const CallLyout = () => {
@@ -74,7 +68,7 @@ const MeetingRoom = () => {
       </div>
 
       <div className="fixed bottom-0 flex flex-wrap-reverse w-full items-center justify-center gap-2 sm:gap-3 md:gap-4 ">
-        <CallControls />
+        <CallControls onLeave={() => router.push("/")} />
 
         <DropdownMenu>
           <div className="flex items-center">
