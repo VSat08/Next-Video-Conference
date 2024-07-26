@@ -24,13 +24,18 @@ const config = {
           2: "#161925",
           3: "#252A41",
           4: "#1E2757",
+          5: "#0F0E0E",
+          6: "#1E1E1E",
+          7: "#171717",
+          8:"#212121"
         },
         blue: {
           1: "#0E78F9",
         },
       },
       backgroundImage: {
-        hero: "url('/images/hero-background.png')",
+        hero: "url('/images/hero-background2.jpg') ",
+        grad1: "linear-gradient(to bottom right, #1E1E1E, #0F0E0E)",
       },
       keyframes: {
         "accordion-down": {

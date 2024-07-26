@@ -20,17 +20,17 @@ const HomeCard = ({
   return (
     <div
       className={cn(
-        "px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-2xl cursor-pointer",
+        "px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-3xl cursor-pointer",
         color
       )}
       onClick={handleClick}
     >
-      <div className="flex-center glassmorphism size-12 rounded-md">
+      <div className="flex-center glassmorphism size-12 rounded-xl">
         <Image src={img} alt="meeting" width={27} height={27} />
       </div>
       <div className="flex flex-col gap-2">
-        <h1 className="text-2xl font-bold">{title}</h1>
-        <p className="text-lg font-normal">{description}</p>
+        <h1 className="text-3xl md:text-4xl font-semibold">{title}</h1>
+        <p className="text-lg font-light">{description}</p>
       </div>
     </div>
   );

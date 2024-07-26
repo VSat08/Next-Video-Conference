@@ -27,7 +27,7 @@ const MobileNav = () => {
             className="cursor-pointer sm:hidden "
           />
         </SheetTrigger>
-        <SheetContent side="left" className="border-none bg-dark-1">
+        <SheetContent side="left" className="border-none bg-dark-5/90 backdrop-blur-md">
           <Link href="/" className="flex items-center gap-1">
             <Image
               src="/icons/logo.svg"
@@ -46,14 +46,14 @@ const MobileNav = () => {
                   const isActive = pathname === link.route;
 
                   return (
-                    <SheetClose asChild key={link.route}>
+                    <SheetClose asChild key={link.route} >
                       <Link
                         href={link.route}
                         key={link.label}
                         className={cn(
-                          "flex gap-4 items-center p-4 rounded-lg w-full max-w-60",
+                          "flex gap-4 items-center p-4 rounded-2xl w-full max-w-60",
                           {
-                            "bg-blue-1": isActive,
+                            "text-2xl  bg-dark-8": isActive,
                           }
                         )}
                       >
@@ -63,7 +63,7 @@ const MobileNav = () => {
                           width={20}
                           height={20}
                         />
-                        <p className=" font-semibold">{link.label}</p>
+                        <p className=" font-normal">{link.label}</p>
                       </Link>
                     </SheetClose>
                   );
