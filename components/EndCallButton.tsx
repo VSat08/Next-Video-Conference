@@ -19,13 +19,16 @@ const EndCallButton = () => {
 
   if (!isMeetingOwner) return null;
 
+  const handleEndCall = async () => {
+    await call.endCall();
+    router.push("/");
+    router.refresh(); // This will cause a soft refresh of the page
+  };
+
   return (
-    <Button
-      onClick={async () => {
-        await call.endCall();
-        router.push("/");
-      }}
-    className="bg-red-500">Drop Meeting</Button>
+    <Button onClick={handleEndCall} className="bg-red-500">
+      Drop Meeting
+    </Button>
   );
 };
 
