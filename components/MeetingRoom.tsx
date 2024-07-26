@@ -8,7 +8,7 @@ import {
   SpeakerLayout,
   useCallStateHooks,
 } from "@stream-io/video-react-sdk";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   DropdownMenu,
@@ -18,8 +18,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LayoutList, Users, Users2 } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { LayoutList, Users2 } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
 import Loader from "./Loader";
 
@@ -29,11 +29,19 @@ const MeetingRoom = () => {
   const searchParams = useSearchParams();
   const isPersonalRoom = !!searchParams.get("personal");
 
+  const router = useRouter();
+
   const [layout, setLayout] = useState<CallLayoutType>("speaker-left");
   const [showParticipants, setShowParticipants] = useState(false);
 
   const { useCallCallingState } = useCallStateHooks();
   const callingState = useCallCallingState();
+
+  useEffect(() => {
+    if (callingState === CallingState.LEFT) {
+      router.push("/"); // Redirect to homepage when call ends
+    }
+  }, [callingState, router]);
 
   if (callingState !== CallingState.JOINED) return <Loader />;
 
