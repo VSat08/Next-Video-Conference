@@ -9,6 +9,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Textarea } from "./ui/textarea";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Input } from "./ui/input";
 
 const MeetingTypeList = () => {
   const router = useRouter();
@@ -172,6 +173,23 @@ const MeetingTypeList = () => {
         buttonText="Start  meeting"
         handleClick={createMeeting}
       />
+
+      <MeetingModal
+        isOpen={meetingState === "isJoiningMeeting"}
+        onClose={() => {
+          setMeetingState(undefined);
+        }}
+        title="Enter Meeting link"
+        className="text-center"
+        buttonText="Join  meeting"
+        handleClick={() => router.push(values.link)}
+      >
+        <Input
+          placeholder="paste meeting link here"
+          className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0 "
+          onChange={(e) => setValues({ ...values, link: e.target.value })}
+        />
+      </MeetingModal>
     </section>
   );
 };
