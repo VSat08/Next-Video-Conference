@@ -42,7 +42,7 @@ const MobileNav = () => {
             <p className="text-[26px] font-extrabold text-white ">Nexera</p>
           </Link>
 
-          <div className="flex flex-col h-[calc(100vh-150px)] justify-between overflow-y-auto bg-red-100 ">
+          <div className="flex flex-col h-[calc(100vh-150px)] justify-between overflow-y-auto ">
             <SheetClose asChild>
               <section className="flex h-full flex-col  gap-6 pt-16 text-white">
                 {sidebarLinks.map((link) => {

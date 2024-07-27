@@ -1,10 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import MobileNav from "./MobileNav";
-import { SignedIn, UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton, useUser } from "@clerk/nextjs";
 
 const Navbar = () => {
+  const { user } = useUser();
+
   return (
     <nav className="flex flex-between fixed z-50 w-full bg-[#1d1d1d]/15 sm:bg-transparent sm:backdrop-blur-0 backdrop-blur-sm  px-6 py-4 lg:px-10">
       <Link
@@ -31,14 +35,14 @@ const Navbar = () => {
             className="size-10"
           />
         </div>
-     
       </Link>
 
       <div className="flex-between gap-5">
-        {/* Clerk User Management */}
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
+        {user && (
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        )}
 
         <MobileNav />
       </div>

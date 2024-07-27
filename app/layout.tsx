@@ -29,8 +29,8 @@ export default function RootLayout({
           layout: {
             logoImageUrl: "/icons/logofull.svg",
             socialButtonsVariant: "iconButton",
-            
           },
+
           variables: {
             colorText: "#fff",
             colorPrimary: "#FF7B00",
@@ -38,7 +38,6 @@ export default function RootLayout({
             colorInputBackground: "#343434",
             colorInputText: "#fff",
             spacingUnit: "12px",
-            
           },
         }}
       >
