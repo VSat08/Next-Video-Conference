@@ -6,18 +6,31 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
-    <nav className="flex flex-between fixed z-50 w-full bg-dark-7/85 sm:bg-transparent sm:backdrop-blur-0 backdrop-blur-sm  px-6 py-4 lg:px-10">
+    <nav className="flex flex-between fixed z-50 w-full bg-[#1d1d1d]/15 sm:bg-transparent sm:backdrop-blur-0 backdrop-blur-sm  px-6 py-4 lg:px-10">
       <Link href="/" className="flex items-center gap-1">
-        <Image
-          src="/icons/logo.svg"
-          alt="logo"
-          width={32}
-          height={32}
-          className="max-sm:size-10"
-        />
-        <p className="text-[26px] font-extrabold text-white max-lg:hidden">
+        <div className="hidden lg:block">
+          <Image
+            src="/icons/logofull.svg"
+            alt="logo"
+            width={32}
+            height={32}
+            title="Nexera"
+            className="w-32"
+          />
+        </div>
+        <div className="hidden max-lg:block">
+          <Image
+            src="/icons/logo.svg"
+            alt="logo"
+            width={32}
+            height={32}
+            title="Nexera"
+            className="size-10"
+          />
+        </div>
+        {/* <p className="text-[26px] font-extrabold text-white max-lg:hidden">
           Nexara
-        </p>
+        </p> */}
       </Link>
 
       <div className="flex-between gap-5">
@@ -25,8 +38,6 @@ const Navbar = () => {
         <SignedIn>
           <UserButton />
         </SignedIn>
-
-        
 
         <MobileNav />
       </div>

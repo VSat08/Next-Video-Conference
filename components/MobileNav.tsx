@@ -27,7 +27,10 @@ const MobileNav = () => {
             className="cursor-pointer sm:hidden "
           />
         </SheetTrigger>
-        <SheetContent side="left" className="border-none bg-dark-5/90 backdrop-blur-md">
+        <SheetContent
+          side="left"
+          className="border-none bg-dark-5/90 backdrop-blur-md"
+        >
           <Link href="/" className="flex items-center gap-1">
             <Image
               src="/icons/logo.svg"
@@ -39,21 +42,21 @@ const MobileNav = () => {
             <p className="text-[26px] font-extrabold text-white ">Nexara</p>
           </Link>
 
-          <div className="flex flex-col h-[calc(100vh-72px)] justify-between overflow-y-auto">
+          <div className="flex flex-col h-[calc(100vh-120px)] justify-between overflow-y-auto ">
             <SheetClose asChild>
               <section className="flex h-full flex-col  gap-6 pt-16 text-white">
                 {sidebarLinks.map((link) => {
                   const isActive = pathname === link.route;
 
                   return (
-                    <SheetClose asChild key={link.route} >
+                    <SheetClose asChild key={link.route}>
                       <Link
                         href={link.route}
                         key={link.label}
                         className={cn(
                           "flex gap-4 items-center p-4 rounded-2xl w-full max-w-60",
                           {
-                            "text-2xl  bg-dark-8": isActive,
+                            "text-xl  bg-orange-400/70 ": isActive,
                           }
                         )}
                       >
@@ -70,6 +73,12 @@ const MobileNav = () => {
                 })}
               </section>
             </SheetClose>
+          </div>
+          <div className=" mt-auto flex flex-col items-center justify-end gap-1">
+            <p className="text-xs font-light  text-gray-300">Nexera</p>
+            <p className="text-xs font-light  text-gray-500">
+              powered by Clerk
+            </p>
           </div>
         </SheetContent>
       </Sheet>

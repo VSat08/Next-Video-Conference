@@ -36,6 +36,7 @@ const config = {
       backgroundImage: {
         hero: "url('/images/hero-background2.jpg') ",
         grad1: "linear-gradient(to bottom right, #1E1E1E, #0F0E0E)",
+        grad2: "linear-gradient(to right, #1E1E1E, #0F0E0E)",
       },
       keyframes: {
         "accordion-down": {
