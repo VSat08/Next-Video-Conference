@@ -39,7 +39,7 @@ const MobileNav = () => {
               height={32}
               className="max-sm:size-10"
             />
-            <p className="text-[26px] font-extrabold text-white ">Nexara</p>
+            <p className="text-[26px] font-extrabold text-white ">Nexera</p>
           </Link>
 
           <div className="flex flex-col h-[calc(100vh-120px)] justify-between overflow-y-auto ">

@@ -31,9 +31,7 @@ const Navbar = () => {
             className="size-10"
           />
         </div>
-        {/* <p className="text-[26px] font-extrabold text-white max-lg:hidden">
-          Nexara
-        </p> */}
+     
       </Link>
 
       <div className="flex-between gap-5">
