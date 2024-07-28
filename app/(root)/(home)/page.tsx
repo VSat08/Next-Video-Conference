@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Home = () => {
   const now = new Date();
-  const time = now.toLocaleTimeString("en-US", {
+  const time = now.toLocaleTimeString("en-IN", {
     hour: "2-digit",
     minute: "2-digit",
   });
