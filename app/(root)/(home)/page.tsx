@@ -3,15 +3,29 @@ import { ArrowUpRight, MailCheckIcon, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
 const Home = () => {
+  // const now = new Date();
+  // const time = now.toLocaleTimeString("en-IN", {
+  //   hour: "2-digit",
+  //   minute: "2-digit",
+  // });
+  // const date = new Intl.DateTimeFormat("en-IN", {
+  //   dateStyle: "full",
+  // }).format(now);
+
   const now = new Date();
-  const time = now.toLocaleTimeString("en-IN", {
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: "Asia/Kolkata",
     hour: "2-digit",
     minute: "2-digit",
-  });
-  const date = new Intl.DateTimeFormat("en-IN", {
-    dateStyle: "full",
-  }).format(now);
+    hour12: true,
+  };
+  const time = now.toLocaleTimeString("en-IN", options);
 
+  const dateOptions: Intl.DateTimeFormatOptions = {
+    timeZone: "Asia/Kolkata",
+    dateStyle: "full",
+  };
+  const date = new Intl.DateTimeFormat("en-IN", dateOptions).format(now);
   return (
     <section className="flex size-full flex-col gap-6 text-white md:bg-white/5 backdrop-blur-md p-2 md:p-8 rounded-[44px] ">
       <div className="flex items-center gap-6 justify-between">
