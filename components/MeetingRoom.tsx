@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import {
   CallControls,
@@ -33,16 +34,46 @@ const MeetingRoom = () => {
 
   const [layout, setLayout] = useState<CallLayoutType>("speaker-left");
   const [showParticipants, setShowParticipants] = useState(false);
+  const [groupSize, setGroupSize] = useState(4);
 
   const { useCallCallingState } = useCallStateHooks();
   const callingState = useCallCallingState();
+
+  useEffect(() => {
+    const updateGroupSize = () => {
+      const width = window.innerWidth;
+      if (width < 600) {
+        setGroupSize(4);
+      } else if (width < 960) {
+        setGroupSize(6);
+      } else {
+        setGroupSize(12);
+      }
+    };
+
+    // Initial group size setup
+    updateGroupSize();
+
+    // Update group size on window resize
+    window.addEventListener("resize", updateGroupSize);
+
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener("resize", updateGroupSize);
+  }, []);
 
   if (callingState !== CallingState.JOINED) return <Loader />;
 
   const CallLyout = () => {
     switch (layout) {
       case "grid":
-        return <PaginatedGridLayout />;
+        return (
+          <div className="w-full h-full my-auto flex">
+            <PaginatedGridLayout
+              pageArrowsVisible={true}
+              groupSize={groupSize}
+            />
+          </div>
+        );
 
       case "speaker-right":
         return <SpeakerLayout participantsBarPosition="left" />;
@@ -55,8 +86,13 @@ const MeetingRoom = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden pt-4 text-white">
       <div className="relative flex size-full items-center justify-center">
-        <div className="flex size-full max-w-[1000px] items-center">
-          <CallLyout />
+        <div className="flex size-full w-full items-center ">
+          <div className="w-full h-full my-auto flex ">
+            <PaginatedGridLayout
+              pageArrowsVisible={true}
+              groupSize={groupSize}
+            />
+          </div>
         </div>
         <div
           className={cn("h-[calc(100vh-86px)] hidden ml-2 ", {
@@ -67,7 +103,7 @@ const MeetingRoom = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 flex flex-wrap-reverse w-full items-center justify-center gap-2 sm:gap-3 md:gap-4 ">
+      <div className="fixed bottom-0 flex flex-wrap-reverse w-full items-center justify-center gap-1 sm:gap-3 md:gap-4 ">
         <CallControls onLeave={() => router.push("/")} />
 
         <DropdownMenu>
