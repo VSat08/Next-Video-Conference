@@ -1,5 +1,5 @@
 import MeetingTypeList from "@/components/MeetingTypeList";
-import { ArrowUpRight, TrendingUp } from "lucide-react";
+import { ArrowUpRight, MailCheckIcon, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
 const Home = () => {
@@ -17,8 +17,8 @@ const Home = () => {
       <div className="flex items-center gap-6 justify-between">
         <div className="h-[300px] w-full rounded-3xl bg-hero bg-cover">
           <div className="flex h-full flex-col justify-center items-start p-6 gap-16 max-md:px-5 max-md:py-8 lg:p-11">
-            <h2 className="glassmorphism  rounded-xl p-2 px-3  text-base  font-normal">
-              Check your Upcoming Meetings regularly
+            <h2 className="glassmorphism  rounded-xl p-2 px-3  text-base  font-normal flex items-center gap-2">
+              <MailCheckIcon /> Stay connected to your deadlines
             </h2>
             <div className="flex flex-col gap-2 items-start">
               <h1 className="text-4xl font-extrabold lg:text-5xl xl:text-7xl">

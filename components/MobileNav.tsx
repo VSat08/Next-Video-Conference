@@ -27,10 +27,8 @@ const MobileNav = () => {
             className="cursor-pointer sm:hidden "
           />
         </SheetTrigger>
-        <SheetContent
-          side="left"
-          className="border-none bg-dark-5/90 backdrop-blur-md"
-        >
+
+        <SheetContent side="left" className="border-none bg-dark-5/95 ">
           <Link href="/" className="flex items-center gap-1">
             <Image
               src="/icons/logo.svg"
@@ -42,9 +40,9 @@ const MobileNav = () => {
             <p className="text-[26px] font-extrabold text-white ">Nexera</p>
           </Link>
 
-          <div className="flex flex-col h-[calc(100vh-150px)] justify-between overflow-y-auto ">
+          <div className="flex flex-col   overflow-y-auto  ">
             <SheetClose asChild>
-              <section className="flex h-full flex-col  gap-6 pt-16 text-white">
+              <section className="flex  flex-col  gap-6 pt-16 text-white ">
                 {sidebarLinks.map((link) => {
                   const isActive = pathname === link.route;
 
@@ -73,12 +71,13 @@ const MobileNav = () => {
                 })}
               </section>
             </SheetClose>
-          </div>
-          <div className=" mt-auto flex flex-col items-center justify-end gap-1">
-            <p className="text-xs font-light  text-gray-300">Nexera</p>
-            <p className="text-xs font-light  text-gray-500">
-              powered by Clerk
-            </p>
+
+            <div className=" mt-32 flex flex-col items-center justify-end gap-1">
+              <p className="text-xs font-light  text-gray-300">Nexera</p>
+              <p className="text-xs font-light  text-gray-500">
+                powered by Clerk
+              </p>
+            </div>
           </div>
         </SheetContent>
       </Sheet>

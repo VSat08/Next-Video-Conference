@@ -11,7 +11,7 @@ import Image from "next/image";
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <section className="sticky left-4 top-3 flex h-[calc(100vh-30px)] w-fit flex-col justify-between bg-dark-5/65 p-6 pt-28 text-white max-sm:hidden lg:w-[264px] rounded-3xl">
+    <section className="sticky left-4 top-3 flex h-[calc(100vh-30px)] w-fit flex-col justify-between bg-dark-5 p-6 pt-28 text-white max-sm:hidden lg:w-[264px] rounded-3xl">
       <div className="flex flex-1 flex-col gap-6 ">
         {sidebarLinks.map((link) => {
           const isActive =

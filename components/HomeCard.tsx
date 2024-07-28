@@ -35,7 +35,7 @@ const HomeCard = ({
         <p className="text-lg font-light">{description}</p>
       </div>
       <div className="absolute w-full h-full inset-0 overflow-hidden  pointer-events-none">
-        <Meteors number={50} />
+        <Meteors number={20} />
       </div>
     </div>
   );
